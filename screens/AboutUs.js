@@ -9,7 +9,8 @@ import {
   TouchableOpacity,
   View,
   ActivityIndicator,
-  Dimensions
+  Dimensions,
+  ImageBackground
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import Communications from 'react-native-communications';
@@ -48,73 +49,92 @@ export default class AboutUs extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>         
-          <View style={styles.getStartedContainer}>
-            <Text style={{color:'black', fontSize:18, fontWeight: 'bold'}}>Customer Service and Sales</Text>
-          
-            <TouchableOpacity onPress={() => Communications.phonecall('8559098856', true)}>
-              <Text style={styles.phoneText}>(855) 909-8856</Text>
-            </TouchableOpacity>
-              <Text style={styles.addressText}>14825 Proctor Ave, La Puente, CA 91746</Text>
+        {/*<ImageBackground
+          style={{
+            width: '100%',
+            height: '100%'
+          }}
+          source={require('../assets/images/Wood.jpg')}
+        >*/}
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>         
+            <View style={styles.getStartedContainer}>
+              <Text style={{color:'black', fontSize:18, fontWeight: 'bold'}}>Customer Service and Sales</Text>
             
-              <Text>{"\n"}</Text>
-          </View>
-
-
-          <View style={styles.mapContainer}>
-              <MapView
-                    style={{height:(SCREEN_WIDTH*.75), width:(SCREEN_WIDTH*.75)}}
-                    initialRegion={{
-                      longitude: -117.97329,
-                      latitude: 34.0291996,
-                      longitudeDelta: 0.01,
-                      latitudeDelta: 0.025
-                    }}
-                >
-                <MapView.Marker
-                    coordinate={{                      
-                      longitude: -117.97329,
-                      latitude: 34.0291996}}
-                    title={"CRAZY RIDES"}
-                    description={"14825 Proctor Ave, La Puente, CA 91746"}
-                    />
-                    </MapView>
-          </View>
-          <View style={styles.getStartedContainer}>
-            <Text style={{color:'black', fontSize:18, fontWeight: 'bold'}}>Hours of Operations:</Text>
-          </View>
-          <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', marginTop: 0}}>
-            <View style={styles.leftHoursContainer} >
-              <Text>Sunday</Text>
-              <Text>Monday</Text>
-              <Text>Tuesday</Text>
-              <Text>Wednesday</Text>
-              <Text>Thursday</Text>
-              <Text>Friday</Text>
-              <Text>Saturday</Text>
+              <TouchableOpacity onPress={() => Communications.phonecall('8007703601', true)}>
+                <Text style={styles.phoneText}>(800) 770-3601</Text>
+              </TouchableOpacity>
+                <Text style={styles.addressText}>14825 Proctor Ave, La Puente, CA 91746</Text>
+                <TouchableOpacity onPress={this._handleWebsitePress}>
+                  <Text style={styles.helpLinkText}>www.VentaDeToroMecanico.com</Text>
+                </TouchableOpacity>
+                <Text>{"\n"}</Text>
             </View>
-            <View style={styles.hoursContainer} >
-              <Text>Closed</Text>
-              <Text>9am-5pm</Text>
-              <Text>9am-5pm</Text>
-              <Text>9am-5pm</Text>
-              <Text>9am-5pm</Text>
-              <Text>8:30am-3pm</Text>
-              <Text>7:30am-2pm</Text>
+
+
+            <View style={styles.mapContainer}>
+                <MapView
+                      style={{height:(SCREEN_WIDTH*.75), width:(SCREEN_WIDTH*.75)}}
+                      initialRegion={{
+                        longitude: -117.97329,
+                        latitude: 34.0291996,
+                        longitudeDelta: 0.01,
+                        latitudeDelta: 0.025
+                      }}
+                  >
+                  <MapView.Marker
+                      coordinate={{                      
+                        longitude: -117.97329,
+                        latitude: 34.0291996}}
+                      title={"CRAZY RIDES"}
+                      description={"14825 Proctor Ave, La Puente, CA 91746"}
+                      />
+                      </MapView>
             </View>
-          </View>
-          
+            <View style={styles.getStartedContainer}>
+            <View style={styles.socialIcons}>
+                {/*<Text style={styles.socialText}>Click to Visit!</Text>*/}
+                <TouchableOpacity onPress={this._handleFacebookPress}>
+                <Image style={{width: 72, height: 72}} source={require('../assets/images/facebook-logo.png')}/>
 
+                </TouchableOpacity>
 
-        </ScrollView>
+                <Text style={{fontSize:70, color: 'white'}}>'    '</Text>
 
+                <TouchableOpacity onPress={this._handleInstagramPress}>
+                <Image style={{width: 65, height: 65}} source={require('../assets/images/ig_logo.png')}/>
+                </TouchableOpacity>
+              </View>
+              <Text style={{color:'black', fontSize:18, fontWeight: 'bold'}}>Hours of Operations:</Text>
+            </View>
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', marginTop: 0}}>
+              <View style={styles.leftHoursContainer} >
+                <Text>Sunday</Text>
+                <Text>Monday</Text>
+                <Text>Tuesday</Text>
+                <Text>Wednesday</Text>
+                <Text>Thursday</Text>
+                <Text>Friday</Text>
+                <Text>Saturday</Text>
+              </View>
+              <View style={styles.hoursContainer} >
+                <Text>Closed</Text>
+                <Text>9am-5pm</Text>
+                <Text>9am-5pm</Text>
+                <Text>9am-5pm</Text>
+                <Text>9am-5pm</Text>
+                <Text>8:30am-3pm</Text>
+                <Text>7:30am-2pm</Text>
+              </View>
+            </View>
+          </ScrollView>
+        {/*</ImageBackground>*/}
       </View>
     );
   }
 
  
   _handleFacebookPress = () => {
-    WebBrowser.openBrowserAsync('https://www.facebook.com/crazyrides16/');
+    WebBrowser.openBrowserAsync('https://www.facebook.com/david.negrete.90');
   };
 
   _handleInstagramPress = () => {
@@ -123,7 +143,7 @@ export default class AboutUs extends React.Component {
 
   _handleWebsitePress = () => {
     WebBrowser.openBrowserAsync(
-      'http://www.bullsandjumpers.com/'
+      'http://ventadetoromecanico.com'
     );
   };
 }

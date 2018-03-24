@@ -7,7 +7,8 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Dimensions
+  Dimensions,
+  ImageBackground
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import Communications from 'react-native-communications';
@@ -24,86 +25,72 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/crazy_rides_large.png')
-                  : require('../assets/images/crazy_rides_small.png')
-              }
-              style={styles.welcomeImage}
-            />
-             <Text style={styles.headerText}>"Helping people start their own business and also throw unforgettable parties"</Text>
-          </View>
-         
-          <View style={styles.getStartedContainer}>
-            <Text style={{color:'white', fontSize:18, fontWeight: 'bold'}}>Customer Service and Sales</Text>
-            <TouchableOpacity onPress={() => Communications.phonecall('8559098856', true)}>
-              <Text style={styles.phoneText}>(855) 909-8856</Text>
-            </TouchableOpacity>
-              <Text style={styles.addressText}>14825 Proctor Ave, La Puente, CA 91746</Text>
+      <ImageBackground
+      style={{
+        width: '100%',
+        height: '100%'
+      }}
+      source={require('../assets/images/Wood.jpg')}
+      >
+        <View style={styles.container}>
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <View style={styles.welcomeContainer}>
+              <Image
+                source={
+                  __DEV__
+                    ? require('../assets/images/crazy_rides_large.png')
+                    : require('../assets/images/crazy_rides_small.png')
+                }
+                style={styles.welcomeImage}
+              />
+            </View>
+          
+            <View style={styles.getStartedContainer}>
+              <Text style={{color:'white', fontSize:18, fontWeight: 'bold'}}>Call for Rental Availability and Sales</Text>
+              <TouchableOpacity onPress={() => Communications.phonecall('8007703601', true)}>
+                <Text style={styles.phoneText}>(800) 770-3601</Text>
+              </TouchableOpacity>
+            </View>
             
-              <Text>{"\n"}</Text>
-          </View>
-          <View style={styles.socialIcons}>
-            <Text style={styles.socialText}>Click to Visit!</Text>
-            <TouchableOpacity onPress={this._handleFacebookPress}>
-            <Image style={{width: 72, height: 72}} source={require('../assets/images/facebook-logo.png')}/>
+            <View style={styles.socialIcons}>
 
-            </TouchableOpacity>
+            </View>
 
-            <Text style={{fontSize:70, color: '#3F1400'}}>'  '</Text>
+            {/* <View style={styles.paymentContainer}>
+              <Image style={{width: SCREEN_WIDTH-10, height: 50}} source={require('../assets/images/cc_large.png')}/>
+            </View> */}
+            <View style={styles.getStartedContainer}>
+              <Text style={styles.getStartedText}> Located in La Puente, California we are a family-owned business 
+              here to service your parties and get-togthers. We offer competitive prices on sales and rentals of
+              mechanical bulls, jumpers, tables, chairs, heaters, canopies, and much more. We can help 
+              you outshine all others when throwing your Cowboy/Farm-themed parties, NFL-themed parties, 
+              Halloween parties, and of course, your bachelor or bachelorette party.
+              </Text>
+            </View>
 
-            <TouchableOpacity onPress={this._handleInstagramPress}>
-            <Image style={{width: 65, height: 65}} source={require('../assets/images/ig_logo.png')}/>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.socialIcons}>
-          <TouchableOpacity onPress={this._handleWebsitePress}>
-              <Text style={styles.helpLinkText}>www.bullsandjumpers.com</Text>
-            </TouchableOpacity>
-          </View>
+          </ScrollView>
 
-          <View style={styles.paymentContainer}>
-            <Image style={{width: SCREEN_WIDTH-10, height: 50}} source={require('../assets/images/cc_large.png')}/>
-          </View>
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}> Located in Southern California, we are here to 
-            service your parties and get-togthers. We offer competitive prices on sales and rentals of
-            mechanical bulls, jumpers, tables, chairs, heaters, canopies, and much more. We can help 
-            you outshine all others when throwing your Cowboy/Farm-themed parties, NFL-themed parties, 
-            Halloween parties, and of course, your bachelor or bachelorette party.
-            </Text>
-          </View>
-
-        </ScrollView>
-
-      </View>
+        </View>
+      </ImageBackground>
     );
   }
 
  
   _handleFacebookPress = () => {
-    WebBrowser.openBrowserAsync('https://www.facebook.com/crazyrides16/');
+    WebBrowser.openBrowserAsync('https://www.facebook.com/david.negrete.90');
   };
 
   _handleInstagramPress = () => {
     WebBrowser.openBrowserAsync('https://www.instagram.com/crazy.ridesofficial/');
   };
 
-  _handleWebsitePress = () => {
-    WebBrowser.openBrowserAsync(
-      'http://www.bullsandjumpers.com/'
-    );
-  };
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3F1400',
+    //backgroundColor: '#3F1400',
   },
   socialIcons:{
     flexDirection: 'row', 
@@ -145,6 +132,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: '#18609C',
     textAlign: 'center',
+    textShadowRadius: 5,
+    textShadowOffset: {width: 1, height: 1},
+    textShadowColor: 'black'
   },
   contentContainer: {
     paddingTop: 0,
@@ -216,5 +206,8 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 20,
     color: 'yellow',
+    textShadowRadius: 10,
+    textShadowOffset: {width: 2, height: 2},
+    textShadowColor: 'black'
   },
 });
