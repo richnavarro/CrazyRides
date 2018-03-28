@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View, ImageBackground } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
@@ -10,15 +10,15 @@ export default class App extends React.Component {
   };
 
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
-      );
-    } else {
+    // if (!this.state.isLoadingComplete) {
+    //   return (
+    //     <AppLoading
+    //       startAsync={this._loadResourcesAsync}
+    //       onError={this._handleLoadingError}
+    //       onFinish={this._handleFinishLoading}
+    //     />
+    //   );
+    // } else {
       return (
 
           <View style={styles.container}>
@@ -28,14 +28,19 @@ export default class App extends React.Component {
           </View>
 
       );
-    }
+    //}
   }
 
   _loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
+        require('./assets/images/bull_icon.png'),
+        require('./assets/images/Wood.jpg'),
+        require('./assets/images/crazy_rides_logo.png'),
+        require('./assets/images/crazy_rides_small.png'),
+        require('./assets/images/ig_logo.png'),
+        require('./assets/images/Wood2.jpg'),
+        require('./assets/images/facebook-logo.png'),
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar

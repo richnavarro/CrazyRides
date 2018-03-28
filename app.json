@@ -1,18 +1,17 @@
 {
   "expo": {
-    "name": "crazyrides",
+    "name": "Crazy Rides",
     "description": "A very interesting project.",
     "slug": "crazyrides",
     "privacy": "public",
-    "sdkVersion": "24.0.0",
+    "sdkVersion": "25.0.0",
     "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "version": "2.23.1",
     "orientation": "portrait",
     "icon": "./assets/images/crazy_rides_small.png",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover"
     },
     "android": {
       "package": "com.crazyrides.catalog"

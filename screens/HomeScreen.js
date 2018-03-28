@@ -12,8 +12,8 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import Communications from 'react-native-communications';
-import { MonoText } from '../components/StyledText';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+//import { MonoText } from '../components/StyledText';
+//import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -36,11 +36,7 @@ export default class HomeScreen extends React.Component {
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             <View style={styles.welcomeContainer}>
               <Image
-                source={
-                  __DEV__
-                    ? require('../assets/images/crazy_rides_logo.png')
-                    : require('../assets/images/crazy_rides_small.png')
-                }
+                source={ require('../assets/images/crazy_rides_logo.png') }
                 style={styles.welcomeImage}
               />
             </View>
@@ -130,7 +126,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     //color: 'white',
     fontSize: 30,
-    color: '#18609C',
+    color: '#ffab11',
     textAlign: 'center',
     textShadowRadius: 5,
     textShadowOffset: {width: 1, height: 1},
